@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>解除ボタン</title>
+</head>
+<body>
+    <h2>ここを押して止める</h2>
+    <button id="btn" style="width:200px; height:100px; font-size:20px;">
+        アラートを停止！
+    </button>
+
+    <script>
+        document.getElementById('btn').onclick = function() {
+            // index.html が監視している localStorage にフラグを立てる
+            localStorage.setItem('stop_alert', 'true');
+            this.innerText = "停止信号を送りました";
+            this.disabled = true;
+        };
+    </script>
+</body>
+</html>

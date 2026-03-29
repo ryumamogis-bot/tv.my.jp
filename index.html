@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>テレビ有料化</title>
+</head>
+<body>
+    <h1>テレビ有料化...</h1>
+    <p>1秒100円</p>
+
+    <script>
+        // 状態を初期化（停止フラグを消しておく）
+        localStorage.removeItem('stop_alert');
+
+        // 別ウィンドウ（button.html）を開く
+        window.open('button.html', '_blank', 'width=300,height=200');
+
+        // 0.5秒ごとにチェックしてアラートを出す
+        const interval = setInterval(() => {
+            // localStorage の 'stop_alert' が true になっていたら停止
+            if (localStorage.getItem('stop_alert') === 'true') {
+                clearInterval(interval);
+                alert("解除されました！");
+            } else {
+                alert("ボタンを押すまで止まりません！");
+            }
+        }, 500);
+    </script>
+</body>
+</html>
